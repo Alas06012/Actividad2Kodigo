@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html, body {
@@ -11,10 +12,249 @@ html, body {
     font-family: sans-serif;
 }
 
+
+/*---------------------*/
+/* CSS DE HEADER */
+/*---------------------*/
+header{
+    position: fixed;
+    width: 100%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d70021; /* Rojo Juan Valdez */
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-height: 500px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}
+
+.icons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.icons li {
+    margin-left: 15px;
+}
+
+.icons li a {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilo del icono de sandwich */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.phone-menu-section{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #8a0015;
+    color: white;
+    transition: all 0.1s ease-in-out;
+    height: 0%;
+}
+
+.phone-menu-section p{
+    font-weight: 700;
+    padding: 5px;
+    transition: all 0.1s ease-in-out;
+}
+
+.phone-menu-section p:hover{
+    background-color: #d50000;
+    padding: 5px;
+    border-radius: 0.7rem;
+}
+
+.active{
+    display: grid;
+    height: 100%;
+}
+
+
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 767px) {
+    .menu {
+        display: none; /* Ocultamos el menú por defecto en pantallas pequeñas */
+        flex-direction: column;
+        width: 100%;
+        background-color: #d50000;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .icons {
+        display: none; /* También ocultamos los iconos en pantallas pequeñas */
+    }
+
+    .menu-icon {
+        display: block; /* Mostramos el icono de sandwich */
+    }
+}
+
+
+
+
+
+/*---------------------*/
+/* CSS DE MAIN */
+/*---------------------*/
+
+main{
+    padding-top: 6rem;
+}
+
+
 /*imagenes responsivas*/
 .img-responsive {
     max-width: 100%;
     height: auto;
     display: block;
     padding: 1rem 1rem 0 1rem;
+}
+
+
+
+
+
+/*---------------------*/
+/* CSS DE FOOTER */
+/*---------------------*/
+
+footer{
+    border-top: 3px dashed red; 
+    padding: 20px;
+    margin-top: 2rem;
+
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    color: red;
+    font-family: Arial, sans-serif;
+
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 20px; 
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo, .certificado {
+    width: 70px;
+    
+}
+
+.links-section {
+    display: flex;
+    justify-content: space-around;
+    grid-column: 2 / 4; /* Ocupa las dos últimas columnas */
+    list-style: none;
+}
+
+.links-section a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    grid-column: 1 / 4; /* Abarca todo el ancho */
+    font-size: 14px;
+    color: red;
+    margin-top: 10px;
+}
+
+/* Media Query para pantallas menores a 767px */
+@media (max-width: 767px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Cambia a una columna */
+        gap: 10px;
+    }
+
+    .links-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-column: 1 / 2; /* Ocupe todo el ancho */
+        gap: 15px;
+        border-bottom: 3px dashed red; 
+        padding: 1rem;
+    }
+
+    .logo-section {
+        justify-content: center; 
+        grid-column: 1 / 2; /* Asegura que el logo esté en una sola columna */
+    }
+
+    .footer-bottom {
+        grid-column: 1 / 2; /* Abarca todo el ancho en pantallas pequeñas */
+        padding-top: 1rem;
+    }
 }
