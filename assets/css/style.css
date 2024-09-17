@@ -279,7 +279,7 @@ main{
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    margin: 3rem 0.5rem;
+    margin: 3rem 0;
 }
 
 .container_store .store_box{
