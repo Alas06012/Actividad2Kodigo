@@ -93,8 +93,76 @@
 
     <main>
 
+        <!-- Carrusel de imagenes para Descktop -->
+        <section class="carrusel desktop">
+            <section class="imagenes" id="imagenes">
+                <img src="./assets/images/BANNER01.jpg" alt="Imagen 1" loading="lazy">
+                <img src="./assets/images/BANNER02.gif" alt="Imagen 2" loading="lazy">
+                <img src="./assets/images/BANNER03.jpg" alt="Imagen 3" loading="lazy">
+                <img src="./assets/images/BANNER04.gif" alt="Imagen 4" loading="lazy">
+                <img src="./assets/images/BANNER05.gif" alt="Imagen 5" loading="lazy">
+                <img src="./assets/images/BANNER06.jpg" alt="Imagen 6" loading="lazy">
+            </section>
+            <button class="btn anterior" onclick="anterior()" id="anterior"> <!-- Boton para retroceder a la imagen anterior -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M15 6l-6 6l6 6" />
+                </svg>
+            </button>
+            <button class="btn siguiente" onclick="siguiente()" id="siguiente">  <!-- Boton para avanzar a la imagen siguiente -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 6l6 6l-6 6" />
+                </svg>
+            </button>
+        </section>
 
+        <!-- Indicadores de imagenes disponibles en el carrusel -->
+        <section class="puntos" id="puntosDescktop"></section>
 
+        <!-- Carrusel de imagenes para Mobile -->
+        <section class="carrusel mobile">
+            <section class="imagenes" id="imagenes_mobile">
+                <img src="./assets/images/BANNER01_MOBILE.jpg" alt="Imagen 1">
+                <img src="./assets/images/BANNER02_MOBILE.gif" alt="Imagen 2">
+                <img src="./assets/images/BANNER03_MOBILE.jpg" alt="Imagen 3">
+                <img src="./assets/images/BANNER04_MOBILE.gif" alt="Imagen 4">
+                <img src="./assets/images/BANNER05_MOBILE.jpg" alt="Imagen 5">
+            </section>
+            <button class="btn anterior" onclick="anteriorMobile()">   <!-- Boton para retroceder a la imagen anterior -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M15 6l-6 6l6 6" />
+                </svg>
+            </button>
+            <button class="btn siguiente" onclick="siguienteMobile()">   <!-- Boton para avanzar a la imagen siguiente -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 6l6 6l-6 6" />
+                </svg>
+            </button>
+        </section>
+
+        <!-- Indicadores de imagenes disponibles en el carrusel -->
+        <section class="puntos" id="puntosMobile"></section>
+
+        <!-- Contenedores con informacion de las tiendas -->
+        <section class="container_info">
+            <section class="container_store">
+                <section class="store_box">
+                    <h2 id="contador1"></h2>
+                    <h5>Tiendas en Colombia</h5>
+                </section>
+                <section class="store_box">
+                    <h2 id="contador2"></h2>
+                    <h5>Tiendas Internacionales</h5>
+                </section>
+                <section class="store_box">
+                    <h2 id="contador3"></h2>
+                    <h5>Colaboradores</h5>
+                </section>
+            </section>
+        </section>
 
         <section>
             <picture>
