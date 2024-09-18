@@ -143,3 +143,88 @@ mostrarImagenMobile(actual);
 setInterval(() => {
     siguiente();
 }, 20000);
+
+// accedemos a la imagenes 
+let slideImages = document.querySelectorAll('.slides img');
+// accedemos a los botones
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+// accedemos a los indicadores
+let dots = document.querySelectorAll('.dot');
+//controla la imagen actual
+let index  = 0;
+
+// funcion que se ejecutara en el boton next
+next.addEventListener('click', slideNext);
+function slideNext(){
+    slideImages[index].style.animation = 'next1 0.5s ease-in forwards';
+    if(index >= slideImages.length-1){
+        index = 0;
+    }
+    else{
+        index++;
+    }
+    slideImages[index].style.animation = 'next2 0.5s ease-in forwards';
+    indicators();
+}
+
+// funcion que se ejecuta para el boton anterior
+prev.addEventListener('click', slidePrev);
+function slidePrev(){
+    slideImages[index].style.animation = 'prev1 0.5s ease-in forwards';
+    if(index == 0){
+        index = slideImages.length-1;
+    }
+    else{
+        index--;
+    }
+    slideImages[index].style.animation = 'prev2 0.5s ease-in forwards';
+    indicators();
+}
+
+// Funcion para que sea autodelizamiento
+function autoSliding(){
+    deletInterval = setInterval(timer, 10000); //10000 indica que se dezliza a los 10s
+    function timer(){
+        slideNext();
+        indicators();
+    }
+}
+autoSliding();
+
+// detiene el slide cuando el raton esta sobre el slide
+const container = document.querySelector('.slide-container');
+container.addEventListener('mouseover', function(){
+    clearInterval(deletInterval);
+});
+
+// Continua con el deslizamiento de slide
+container.addEventListener('mouseout', autoSliding);
+
+// actualiza los indicadores
+function indicators(){
+    for(let i = 0; i < dots.length; i++){
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+    dots[index].className += ' active';
+}
+
+// funcion para cambiar la imagen al hacer click en un indicador
+function switchImage(currentImage){
+    currentImage.classList.add('active');
+    let imageId = currentImage.getAttribute('attr');
+    if(imageId > index){
+        slideImages[index].style.animation = 'next1 0.10s ease-in forwards';
+        index = imageId;
+        slideImages[index].style.animation = 'next2 0.10s ease-in forwards';
+    }
+    else if(imageId == index){
+        return;
+    }
+    else{
+        slideImages[index].style.animation = 'prev1 0.10s ease-in forwards';
+        index = imageId;
+        slideImages[index].style.animation = 'prev2 0.10s ease-in forwards';    
+    }
+    indicators();
+}
