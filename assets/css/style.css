@@ -310,6 +310,13 @@ main{
     }
 }
 
+/* Modifica el ancho de los contenedores para dispositivos menores a 425px */
+@media (max-width: 425px) { 
+    .container_store .store_box{
+        width: 45%;
+    }
+}
+
 .slide-container{
     margin: 0 20vw;
     justify-content: center;

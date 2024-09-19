@@ -22,7 +22,8 @@ const totalImagenesDesktop = imagenesDesktop.length;
 const totalImagenesMobile = imagenesMobile.length;
 let puntos = document.getElementById(`puntosDescktop`);
 let puntosM = document.getElementById(`puntosMobile`);
-let actual = 0;
+let actualDesktop = 0;
+let actualMobile = 0;
 
 //Mostrar la imagen actual en Desktop
 function mostrarImagenDesktop(index) {
@@ -36,22 +37,27 @@ function mostrarImagenDesktop(index) {
 
 //Cambiar imágenes en Desktop
 function siguiente() {
-    actual++;
-    if (actual >= totalImagenesDesktop) {
-        actual = 0; // Volver a la primera imagen
+    actualDesktop++;
+    if (actualDesktop >= totalImagenesDesktop) {
+        actualDesktop = 0; // Volver a la primera imagen
     }
-    mostrarImagenDesktop(actual);
-    posicionCarruselD()
+    mostrarImagenDesktop(actualDesktop);
+    posicionCarruselD(); // Actualizar los puntos del carrusel
 }
 
 function anterior() {
-    actual--;
-    if (actual < 0) {
-        actual = totalImagenesDesktop - 1; // Ir a la última imagen
+    actualDesktop--;
+    if (actualDesktop < 0) {
+        actualDesktop = totalImagenesDesktop - 1; // Ir a la última imagen
     }
-    posicionCarruselD()
-    mostrarImagenDesktop(actual); 
+    mostrarImagenDesktop(actualDesktop); 
+    posicionCarruselD(); // Actualizar los puntos del carrusel
 }
+
+// Cambia de imagen del carrusel en Descktop cada 10 segundos
+setInterval(() => {
+    siguiente();
+}, 10000);
 
 //Mostrar la imagen actual en Mobile
 function mostrarImagenMobile(index) {
@@ -64,31 +70,36 @@ function mostrarImagenMobile(index) {
 
 //Cambiar imágenes en Mobile
 function siguienteMobile() {
-    actual++;
-    if (actual >= totalImagenesMobile) {
-        actual = 0; // Volver a la primera imagen
+    actualMobile++;
+    if (actualMobile >= totalImagenesMobile) {
+        actualMobile = 0; // Volver a la primera imagen
     }
-    mostrarImagenMobile(actual);
+    mostrarImagenMobile(actualMobile);
     posicionCarruselM()
 }
 
 function anteriorMobile() {
-    actual--;
-    if (actual < 0) {
-        actual = totalImagenesMobile - 1; // Ir a la última imagen
+    actualMobile--;
+    if (actualMobile < 0) {
+        actualMobile = totalImagenesMobile - 1; // Ir a la última imagen
     }
+    mostrarImagenMobile(actualMobile);
     posicionCarruselM()
-    mostrarImagenMobile(actual);
 }
+
+// Cambia de imagen del carrusel en Mobile cada 10 segundos
+setInterval(() => {
+    siguienteMobile();
+}, 10000);
 
 // Actualizar la ubicacion de la imagen en el carrusel en Descktop
 function posicionCarruselD(){
     puntos.innerHTML = ``;
     for(var i = 0; i < totalImagenesDesktop; i++){
-        if(i == actual){
-            puntos.innerHTML += `<p class="bold">.<p>`;
+        if(i == actualDesktop){
+            puntos.innerHTML += `<p class="bold">.</p>`;
         }else{
-            puntos.innerHTML += `<p>.<p>`;
+            puntos.innerHTML += `<p>.</p>`;
         }
     }
 }
@@ -97,7 +108,7 @@ function posicionCarruselD(){
 function posicionCarruselM(){
     puntosM.innerHTML = ``;
     for(var i = 0; i < totalImagenesMobile; i++){
-        if(i == actual){
+        if(i == actualMobile){
             puntosM.innerHTML += `<p class="bold">.<p>`;
         }else{
             puntosM.innerHTML += `<p>.<p>`;
@@ -136,13 +147,8 @@ window.addEventListener('resize', handleResize);
 handleResize();
 
 // Inicializa mostrando la primera imagen en ambos carruseles
-mostrarImagenDesktop(actual);
-mostrarImagenMobile(actual);
-
-// Cambia de imagen del carrusel cada 20 segundos
-setInterval(() => {
-    siguiente();
-}, 20000);
+mostrarImagenDesktop(actualDesktop);
+mostrarImagenMobile(actualMobile);
 
 // accedemos a la imagenes 
 let slideImages = document.querySelectorAll('.slides img');
