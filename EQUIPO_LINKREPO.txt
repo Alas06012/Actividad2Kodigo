@@ -3,4 +3,8 @@ INTEGRANTES:
 Diego Alexander Alas Morales
 Elias Antonio Oliva Calderón
 Haydee Abigail Bonilla Reyes
+
+LINK REPOSITORIO GIT:
+https://github.com/Alas06012/Actividad2Kodigo.git
+
 ------------------------------
